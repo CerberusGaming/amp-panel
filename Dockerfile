@@ -14,6 +14,7 @@ RUN apt-key adv --fetch-keys http://repo.cubecoders.com/archive.key \
 
 # Import entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/
+RUN chmod a+x /usr/local/bin/docker-entrypoint.sh
 RUN ln -s /usr/local/bin/docker-entrypoint.sh /
 
 # Add user
