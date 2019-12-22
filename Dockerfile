@@ -17,9 +17,9 @@ RUN useradd -d /opt/amp -ms /bin/bash -r amp
 USER amp
 WORKDIR /opt/amp
 
+# Import entrypoint
 COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s /usr/local/bin/docker-entrypoint.sh
-
+RUN ln -s /usr/local/bin/docker-entrypoint.sh /
 
 # Set execution env and run
 EXPOSE 8080
