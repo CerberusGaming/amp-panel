@@ -13,5 +13,8 @@ RUN apt-key adv --fetch-keys http://repo.cubecoders.com/archive.key \
     && apt-get -y install ampinstmgr
 
 
-RUN useradd -d /home/amp -m amp -s /bin/bash
+RUN useradd -d /opt/amp -m amp -s /bin/bash -r
 USER amp
+WORKDIR /opt/amp
+
+EXPOSE 8080
