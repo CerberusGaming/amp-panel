@@ -12,14 +12,14 @@ RUN apt-key adv --fetch-keys http://repo.cubecoders.com/archive.key \
     && apt-get update \
     && apt-get -y install ampinstmgr
 
+# Import entrypoint
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN ln -s /usr/local/bin/docker-entrypoint.sh /
+
 # Add user
 RUN useradd -d /opt/amp -ms /bin/bash -r amp 
 USER amp
 WORKDIR /opt/amp
-
-# Import entrypoint
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s /usr/local/bin/docker-entrypoint.sh /
 
 # Set execution env and run
 EXPOSE 8080
