@@ -1,11 +1,15 @@
 FROM debian:jessie
 
-ENV LANG en_US.UTF-8  
-ENV LC_ALL en_US.UTF-8
+
 ENV DEBIAN_FRONTEND noninteractive
 
+
 RUN apt-get update \
-    && apt-get -y install software-properties-common dirmngr apt-transport-https
+    && apt-get -y install software-properties-common dirmngr apt-transport-https locales
+
+ENV LANG en_US.UTF-8  
+ENV LC_ALL en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
 
 RUN apt-key adv --fetch-keys http://repo.cubecoders.com/archive.key \
     && apt-add-repository "deb http://repo.cubecoders.com/ debian/" \
