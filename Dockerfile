@@ -23,5 +23,5 @@ ENV ADMIN_PASSWORD ""
 
 # Set execution env and run
 EXPOSE 8080
-ENTRYPOINT ["/opt/cubecoders/amp/ampinstmgr", "-b"]
+ENTRYPOINT ["/opt/cubecoders/amp/ampinstmgr", "-b", "0"]
 CMD ["&&", "tail", "-f", "/dev/null"]
