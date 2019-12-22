@@ -17,10 +17,11 @@ RUN useradd -d /opt/amp -ms /bin/bash -r amp
 USER amp
 WORKDIR /opt/amp
 
-# Set running ENVs
-ENV ADMIN_USER ""
-ENV ADMIN_PASSWORD ""
+COPY docker-entrypoint.sh /usr/local/bin/
+RUN ln -s /usr/local/bin/docker-entrypoint.sh
+
 
 # Set execution env and run
 EXPOSE 8080
-CMD ["/opt/cubecoders/amp/ampinstmgr", "-b", "0", "&&", "tail", "-f", "/dev/null"]
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["tail", "-f", "/dev/null"]
