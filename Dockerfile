@@ -2,10 +2,10 @@ FROM debian:jessie
 
 ENV LANG en_US.UTF-8  
 ENV LC_ALL en_US.UTF-8
-
+ENV DEBIAN_FRONTEND noninteractiv
 
 RUN apt-get update \
-    && apt-get -y install software-properties-common dirmngr apt-transport-https iptables-persistent
+    && apt-get -y install software-properties-common dirmngr apt-transport-https
 
 RUN apt-key adv --fetch-keys http://repo.cubecoders.com/archive.key \
     && apt-add-repository "deb http://repo.cubecoders.com/ debian/" \
