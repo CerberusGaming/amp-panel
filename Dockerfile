@@ -23,5 +23,5 @@ WORKDIR /opt/amp
 
 # Set execution env and run
 EXPOSE 8080
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["tail", "-f", "/dev/null"]
